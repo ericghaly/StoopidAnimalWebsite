@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Flasky{% endblock %}
+
+{% block page_content %}
+
+<br><br><br><br><br><br>
+<div class="page-header">
+
+    <h2 align="center"> User name</h2>
+
+   <h4 align="center"> {{ allDetails.name }}</h4>
+
+ <h2 align="center"> User Zip Code </h2>
+    <h4 align="center">{{ allDetails.homeTown }}</h4>
+    <br>
+ <h2 align="center"> Bio </h2>
+    <h4 align="center">{{ allDetails.bio }}</h4>
+
+    <br>
+
+    <div style="margin-top:10px;" class="list-group">
+
+    {% for post in userPosts %}
+        <a href="/Show Post/{{post.id}}" align="center" class="list-group-item list-group-item-action ">
+    <h5 class="list-group-item-heading">{{ post.name }}</h5>
+    <p class="list-group-item-text">{{ post.content }}</p>
+  </a>
+    {% endfor %}
+
+    </div>
+
+    {% if allDetails.is_musician == True %}
+    <p align="center" class="navbar-btn" >
+                        <a href="/New Genre" class="btn btn-primary"><b>Don't see a genre for you? Enter a new genre here!</b></a>
+    </p>
+    {% else %}
+
+    {% endif %}
+
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Flasky{% endblock %}
+
+{% block page_content %}
+<br><br><br><br>
+<div class="page-header">
+
+    <header class="image-bg-fluid-height">
+      <h1 align="center"><b>This is the {{ thisBoard.name }} board! </b></h1>
+       <h3 align="center">This is a subheading for rules about posting!</h3>
+    </header>
+
+    <br>
+
+    <h2 align="center">Posts</h2>
+
+    {% for post in Posts %}
+    <br>
+    <a href="/Show Post/{{post.id}}" align="center" class="list-group-item list-group-item-action ">
+    <h5 class="list-group-item-heading">{{ post.name }}</h5>
+    <p class="list-group-item-text">{{ post.content }}</p>
+  </a>
+    <br>
+    {% endfor %}
+
+
+
+</div>
+{% endblock %}

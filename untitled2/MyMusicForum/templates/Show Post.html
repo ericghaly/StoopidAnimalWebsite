@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Flasky{% endblock %}
+
+{% block page_content %}
+<br><br><br><br>
+<div class="page-header">
+
+    <h3 align="center"> Post name </h3>
+
+    <h4 align="center">{{ postDetails.name }}</h4>
+
+    <br>
+
+    <h3 align="center"> Post Content </h3>
+
+    <h4 align="center">{{ postDetails.content }}</h4>
+
+    <br>
+
+    <h3> Comment Section </h3>
+
+    {% for comment in postComments %}
+
+
+     <div align="center" class="list-group-item list-group-item-action ">
+         <h5 class="list-group-item-heading">User: {{ comment.whoPosted }} says -</h5>
+    <p class="list-group-item-text">{{ comment.content }}</p>
+  </div>
+
+
+    {% endfor %}
+
+</div>
+{% if session['logged_in'] %}
+{{ wtf.quick_form(form) }}
+{% else %}
+<h4>Not signed in, commenting disabled</h4>
+{% endif %}
+<br>
+
+{% endblock %}
