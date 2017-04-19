@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Rare Breeds{% endblock %}
+
+{% block page_content %}
+<br><br><br><br>
+<div class="page-header">
+
+    <h2 align="center"> Breeder name</h2>
+
+   <h4 align="center"> {{ allArtists.name }}</h4>
+
+ <h2 align="center"> Breeder Zip Code </h2>
+    <h4 align="center">{{ allArtists.homeTown }}</h4>
+ <h2 align="center"> Bio </h2>
+    <h4 align="center">{{ allArtists.bio }}</h4>
+
+    <br>
+
+
+    <h2 align="center">Posts</h2>
+
+    {% for post in artistPosts %}
+        <a href="/Show Post/{{post.id}}" align="center" class="list-group-item list-group-item-action ">
+    <h5 class="list-group-item-heading">{{ post.name }}</h5>
+    <p class="list-group-item-text">{{ post.content }}</p>
+  </a>
+    {% endfor %}
+
+
+</div>
+
+{% endblock %}

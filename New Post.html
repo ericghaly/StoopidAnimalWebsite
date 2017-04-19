@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Rare Breeds{% endblock %}
+
+{% block page_content %}
+<br><br><br><br>
+<div align="center" class="page-header">
+    <h1>Hello This is the New Post Page!</h1>
+
+</div>
+{{ wtf.quick_form(form) }}
+<br>
+{% endblock %}
