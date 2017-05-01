@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Rare Breeds{% endblock %}
+
+{% block page_content %}
+
+<br><br><br><br><br>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h1 class="page-header">All Breeds</h1>
+            </div>
+
+            {% for board in allBoards %}
+
+            <div class="col-md-3 col-sm-6">
+                <div class="panel panel-default text-center">
+                    <div class="panel-body">
+                        <h4>{{ board.name }}</h4>
+                        <a class="thumbnail" href="/Breed/{{board.id}}">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            </div>
+        </div>
+
+{% endblock %}
