@@ -22,6 +22,22 @@ moment = Moment(app)
 db = SQLAlchemy(app)
 
 class Genre(db.Model):
+
+    """
+
+class Genre
+
+Class constructor that returns the genre class. The id and name are
+dependent on the database entries, and posts made are in relation
+to the class itself.
+
+:param id       id of the classification
+:param name     name of the classification
+:param posts    posts of the classification
+:return Genre   returns Genre class
+
+    """
+
     __tablename__ = 'genres'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), unique=True)
@@ -235,4 +251,10 @@ def index():
 
 
 if __name__ == '__main__':
+    filename = 'docs'+'.html'
+    f = open(filename, 'w')
+    f.truncate()
+    f.write(Genre.__doc__)
+    f.close()
+    print(Genre.__doc__)
     app.run()
