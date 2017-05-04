@@ -118,6 +118,25 @@ while the content, votes, and comments are a part of the post.</p>
         return '<Post %r>' % self.name
 
 class Comment(db.Model):
+
+    """
+
+<p>class Comment</p>
+
+<p>Class constructor that returns the comment class. The id, posts_id,
+and user_id all help identify the specific comment, while the content
+and whoPosted are about the comment itself.</p>
+<ul>
+    <li>:param id           id of the comment</li>
+    <li>:param content      the comment itself</li>
+    <li>:param whoPosted    user who made the comment</li>
+    <li>:param posts_id     id of the post</li>
+    <li>:param user_id      id of the user who made the comment</li>
+    <li>:return Comment     returns Comment class</li>
+</ul>
+<hr>
+    """
+
     __tablename__ = 'comments'
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.String(64))
@@ -308,6 +327,7 @@ if __name__ == '__main__':
     f.write(Genre.__doc__)
     f.write(User.__doc__)
     f.write(Post.__doc__)
+    f.write(Comment.__doc__)
 
     f.write(bottom)
     f.close()
@@ -315,5 +335,6 @@ if __name__ == '__main__':
     print(Genre.__doc__)
     print(User.__doc__)
     print(Post.__doc__)
+    print(Comment.__doc__)
 
     app.run()
